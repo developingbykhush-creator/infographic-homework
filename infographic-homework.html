@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+ <head><script src="/_sdk/telemetry_sdk.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>City Resource Comparison Infographic</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <style>
+        body { font-family: 'DM Sans', sans-serif; }
+        .bar-animate { animation: growWidth 1.5s ease-out forwards; }
+        @keyframes growWidth { from { width: 0; } }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .score-bar-new { animation: growWidth 2s ease-out forwards; }
+        .icon-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); } }
+    </style>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js" type="text/javascript"></script>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/resizing_sdk.js" type="text/javascript"></script>
+ </head>
+ <body data-template-id="__page-root" class="w-full min-h-screen">
+  <main class="w-full px-3 sm:px-4 md:px-6 py-6 sm:py-8 md:py-10 max-w-5xl mx-auto space-y-8 sm:space-y-10">
+   <!-- HEADER -->
+   <header class="text-center space-y-3 sm:space-y-4">
+    <p data-template-id="header-emoji" class="canva-text text-4xl sm:text-5xl md:text-6xl icon-pulse">🏙️</p>
+    <h1 data-template-id="main-title" class="canva-text font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight"></h1>
+    <p data-template-id="subtitle" class="canva-text font-medium text-sm sm:text-base md:text-lg"></p>
+   </header><!-- City Images -->
+   <section class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+    <div class="rounded-2xl overflow-hidden shadow-lg relative">
+     <img data-template-id="smart-city-img" class="canva-image w-full h-48 object-cover" loading="lazy">
+     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+      <p data-template-id="smart-city-label" class="canva-text font-bold"></p>
+     </div>
+    </div>
+    <div class="rounded-2xl overflow-hidden shadow-lg relative">
+     <img data-template-id="old-city-img" class="canva-image w-full h-48 object-cover" loading="lazy">
+     <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+      <p data-template-id="old-city-label" class="canva-text font-bold"></p>
+     </div>
+    </div>
+   </section><!-- POPULATION -->
+   <section data-template-id="pop-section" class="canva-section rounded-2xl p-4 sm:p-5 md:p-6 space-y-4">
+    <h2 data-template-id="pop-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="space-y-3">
+     <div>
+      <div class="flex justify-between gap-2 mb-1 text-xs sm:text-sm">
+       <span data-template-id="pop-new-label" class="canva-text font-semibold"></span> <span data-template-id="pop-new-value" class="canva-text font-bold"></span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-5 sm:h-6 overflow-hidden">
+       <div data-template-id="pop-new-bar" class="canva-progress h-full rounded-full bar-animate" style="width:100%"></div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between gap-2 mb-1 text-xs sm:text-sm">
+       <span data-template-id="pop-old-label" class="canva-text font-semibold"></span> <span data-template-id="pop-old-value" class="canva-text font-bold"></span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-5 sm:h-6 overflow-hidden">
+       <div data-template-id="pop-old-bar" class="canva-progress h-full rounded-full bar-animate" style="width:79%"></div>
+      </div>
+     </div>
+    </div>
+    <p class="text-center text-2xl sm:text-3xl">👥👥👥</p>
+   </section><!-- WATER -->
+   <section class="space-y-3 sm:space-y-4">
+    <h2 data-template-id="water-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+     <div data-template-id="water-new-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="water-new-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="water-new-1" class="canva-text"></li>
+       <li data-template-id="water-new-2" class="canva-text"></li>
+       <li data-template-id="water-new-3" class="canva-text"></li>
+       <li data-template-id="water-new-4" class="canva-text"></li>
+      </ul>
+     </div>
+     <div data-template-id="water-old-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="water-old-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="water-old-1" class="canva-text"></li>
+       <li data-template-id="water-old-2" class="canva-text"></li>
+       <li data-template-id="water-old-3" class="canva-text"></li>
+       <li data-template-id="water-old-4" class="canva-text"></li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- ENERGY -->
+   <section class="space-y-3 sm:space-y-4">
+    <h2 data-template-id="energy-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+     <div data-template-id="energy-new-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="energy-new-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="energy-new-1" class="canva-text"></li>
+       <li data-template-id="energy-new-2" class="canva-text"></li>
+       <li data-template-id="energy-new-3" class="canva-text"></li>
+       <li data-template-id="energy-new-4" class="canva-text"></li>
+      </ul>
+     </div>
+     <div data-template-id="energy-old-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="energy-old-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="energy-old-1" class="canva-text"></li>
+       <li data-template-id="energy-old-2" class="canva-text"></li>
+       <li data-template-id="energy-old-3" class="canva-text"></li>
+       <li data-template-id="energy-old-4" class="canva-text"></li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- PROBLEMS -->
+   <section class="space-y-3 sm:space-y-4">
+    <h2 data-template-id="problems-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+     <div data-template-id="prob-new-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="prob-new-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="prob-new-1" class="canva-text"></li>
+       <li data-template-id="prob-new-2" class="canva-text"></li>
+       <li data-template-id="prob-new-3" class="canva-text"></li>
+      </ul>
+     </div>
+     <div data-template-id="prob-old-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="prob-old-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="prob-old-1" class="canva-text"></li>
+       <li data-template-id="prob-old-2" class="canva-text"></li>
+       <li data-template-id="prob-old-3" class="canva-text"></li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- SOLUTIONS -->
+   <section class="space-y-3 sm:space-y-4">
+    <h2 data-template-id="solutions-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+     <div data-template-id="sol-new-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="sol-new-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="sol-new-1" class="canva-text"></li>
+       <li data-template-id="sol-new-2" class="canva-text"></li>
+       <li data-template-id="sol-new-3" class="canva-text"></li>
+      </ul>
+     </div>
+     <div data-template-id="sol-old-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="sol-old-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="sol-old-1" class="canva-text"></li>
+       <li data-template-id="sol-old-2" class="canva-text"></li>
+       <li data-template-id="sol-old-3" class="canva-text"></li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- SMART FEATURES -->
+   <section class="space-y-3 sm:space-y-4">
+    <h2 data-template-id="features-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 md:gap-5">
+     <div data-template-id="feat-new-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="feat-new-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="feat-new-1" class="canva-text"></li>
+       <li data-template-id="feat-new-2" class="canva-text"></li>
+       <li data-template-id="feat-new-3" class="canva-text"></li>
+       <li data-template-id="feat-new-4" class="canva-text"></li>
+       <li data-template-id="feat-new-5" class="canva-text"></li>
+      </ul>
+     </div>
+     <div data-template-id="feat-old-card" class="canva-card rounded-2xl p-4 sm:p-5 md:p-6 space-y-2">
+      <p data-template-id="feat-old-heading" class="canva-text font-bold text-sm sm:text-base"></p>
+      <ul class="space-y-1 text-xs sm:text-sm">
+       <li data-template-id="feat-old-1" class="canva-text"></li>
+       <li data-template-id="feat-old-2" class="canva-text"></li>
+       <li data-template-id="feat-old-3" class="canva-text"></li>
+       <li data-template-id="feat-old-4" class="canva-text"></li>
+      </ul>
+     </div>
+    </div>
+   </section><!-- PERFORMANCE SCORE -->
+   <section data-template-id="score-section" class="canva-section rounded-2xl p-4 sm:p-5 md:p-6 space-y-4">
+    <h2 data-template-id="score-title" class="canva-text font-bold text-center text-lg sm:text-xl"></h2>
+    <div class="space-y-4">
+     <div>
+      <div class="flex justify-between gap-2 mb-1 text-sm sm:text-base">
+       <span data-template-id="score-new-label" class="canva-text font-semibold"></span> <span data-template-id="score-new-value" class="canva-text font-bold"></span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-6 sm:h-8 overflow-hidden">
+       <div data-template-id="score-new-bar" class="canva-progress h-full rounded-full score-bar-new" style="width:92%"></div>
+      </div>
+     </div>
+     <div>
+      <div class="flex justify-between gap-2 mb-1 text-sm sm:text-base">
+       <span data-template-id="score-old-label" class="canva-text font-semibold"></span> <span data-template-id="score-old-value" class="canva-text font-bold"></span>
+      </div>
+      <div class="w-full bg-gray-200 rounded-full h-6 sm:h-8 overflow-hidden">
+       <div data-template-id="score-old-bar" class="canva-progress h-full rounded-full score-bar-new" style="width:68%"></div>
+      </div>
+     </div>
+    </div>
+   </section><!-- TAKEAWAY -->
+   <footer data-template-id="takeaway-section" class="canva-section rounded-2xl p-4 sm:p-5 md:p-6 text-center">
+    <p data-template-id="takeaway-label" class="canva-text font-semibold text-xs sm:text-sm uppercase tracking-wider mb-2"></p>
+    <p data-template-id="takeaway-text" class="canva-text font-medium italic text-sm sm:text-base"></p>
+   </footer>
+   <p data-template-id="footer-note" class="canva-text text-center text-xs opacity-60"></p>
+  </main>
+  <script src="/_sdk/editing_sdk.js"></script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a0e9643a3197d854',t:'MTc4MTk0NDAxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
